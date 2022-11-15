@@ -25,4 +25,9 @@ async function HandleError(controller, method, errorMessage) {
   await error.save();
 }
 
-module.exports = { HttpApiResponse, HandleError, HttpErrorResponse };
+function roundoff(value) {
+  var ans = Math.round((value + Number.EPSILON) * 100) / 100;
+  return ans;
+}
+
+module.exports = { HttpApiResponse, HandleError, HttpErrorResponse, roundoff };
